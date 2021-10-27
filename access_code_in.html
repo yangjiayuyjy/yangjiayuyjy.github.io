@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="font/iconfont.css">
+    <link rel="stylesheet" href="index.css">
+    <title>请假外出、返校权限查询通行码</title>
+</head>
+
+<body>
+<div style='overflow: scroll;border-bottom: 80px solid #ededed;'>
+    <header>
+        <div class='white nav' style='margin-bottom: 16px;'>
+            <span class='iconfont blue' style='font-weight: 600;' color:>&#xe60c</span>
+            <span class='navfont'>当前部门：计算机学院（国家示范性软件学院）</span>
+            <span class='iconfont' style='color:#cccccc;float:right;font-size: .06rem;'>&#xeb6d</span></div>
+        <div class='white nav'>
+            <span class='iconfont  blue'>&#xe63a</span>
+            <span class='navfont'>请假外出、返校权限查询</span>
+        </div>
+    </header>
+    <div>
+        <div class='formitem-header'>姓名</div>
+        <div class='formitem-content'>杨佳宇</div>
+        <div class='formitem-header'>学院</div>
+        <div class='formitem-content'>计算机学院（国家示范性软件学院）</div>
+        <div style='height:10px;background-color:rgba(47, 99, 164, 0.05)'></div>
+        <div class='formitem-content'><img src="./img/color.gif" alt="" style='width: 100%; height: 32px;'></div>
+        <div class='formitem-header'>状态码</div>
+        <div class='formitem-content'><img src="./img/code.png" alt="" style='height:150px;width:150px'></div>
+        <div style='height:10px;background-color:rgba(47, 99, 164, 0.05)'></div>
+        <div class='allow'>允许入校</div>
+        <div class='formitem-header'>学工号</div>
+        <div class='formitem-content'>2019141065</div>
+        <div class='formitem-header'> 出入校时间</div>
+        <div class='formitem-content' id='time'></div>
+    </div>
+</div>
+<footer class='white'>
+    <button>更多</button>
+</footer>
+<script>
+    Date.prototype.Format = function(fmt) {
+        var o = {
+            "M+": this.getMonth() + 1, // 月份
+            "d+": this.getDate(), // 日
+            "h+": this.getHours(), // 小时
+            "m+": this.getMinutes(), // 分
+            "s+": this.getSeconds(), // 秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), // 季度
+            "S": this.getMilliseconds() // 毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+    const getTime = () => {
+        var x = document.querySelector('#time');
+        x.innerHTML = new Date().Format("yyyy-MM-dd hh:mm:ss");
+    }
+    getTime();
+</script>
+</body>
+
+</html>
